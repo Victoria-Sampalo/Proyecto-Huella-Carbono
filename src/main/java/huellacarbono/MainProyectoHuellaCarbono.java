@@ -15,15 +15,49 @@ import java.io.IOException;
  *
  * @author victoria
  */
+
 public class MainProyectoHuellaCarbono  {
 
     public static void main(String[] args) throws IOException {
-        String urlBase = "https://api.websitecarbon.com/site?url=www.maralboran.eu";
-        String fichero = ConexionHTTP.peticionHttpGet(urlBase);
 
-        Api chiste = (Api) JsonService.stringToPojo(fichero, Api.class);
-        System.out.println(chiste);
-        System.out.println("-------------");
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+        String urlBase = "https://api.websitecarbon.com/site?url=www.maralboran.eu";
+        String fichero = ConexionHTTP.peticionHttpGet(urlBase);
+
+        Api respuesta = (Api) JsonService.stringToPojo(fichero, Api.class);
+        System.out.println(respuesta);
+        System.out.println("-------------");
+*/
