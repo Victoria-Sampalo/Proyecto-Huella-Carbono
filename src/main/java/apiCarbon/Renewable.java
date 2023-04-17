@@ -1,8 +1,12 @@
 
 package apiCarbon;
 
-import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -13,14 +17,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "litres"
 })
 
-public class Renewable implements Serializable
-{
+public class Renewable {
 
     @JsonProperty("grams")
     private Double grams;
     @JsonProperty("litres")
     private Double litres;
-    private final static long serialVersionUID = 1051393644885853994L;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     /**
      * No args constructor for use in serialization
@@ -60,6 +64,16 @@ public class Renewable implements Serializable
         this.litres = litres;
     }
 
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -72,6 +86,10 @@ public class Renewable implements Serializable
         sb.append('=');
         sb.append(((this.litres == null)?"<null>":this.litres));
         sb.append(',');
+        sb.append("additionalProperties");
+        sb.append('=');
+        sb.append(((this.additionalProperties == null)?"<null>":this.additionalProperties));
+        sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');
         } else {
@@ -83,8 +101,9 @@ public class Renewable implements Serializable
     @Override
     public int hashCode() {
         int result = 1;
-        result = ((result* 31)+((this.grams == null)? 0 :this.grams.hashCode()));
         result = ((result* 31)+((this.litres == null)? 0 :this.litres.hashCode()));
+        result = ((result* 31)+((this.additionalProperties == null)? 0 :this.additionalProperties.hashCode()));
+        result = ((result* 31)+((this.grams == null)? 0 :this.grams.hashCode()));
         return result;
     }
 
@@ -97,7 +116,7 @@ public class Renewable implements Serializable
             return false;
         }
         Renewable rhs = ((Renewable) other);
-        return (((this.grams == rhs.grams)||((this.grams!= null)&&this.grams.equals(rhs.grams)))&&((this.litres == rhs.litres)||((this.litres!= null)&&this.litres.equals(rhs.litres))));
+        return ((((this.litres == rhs.litres)||((this.litres!= null)&&this.litres.equals(rhs.litres)))&&((this.additionalProperties == rhs.additionalProperties)||((this.additionalProperties!= null)&&this.additionalProperties.equals(rhs.additionalProperties))))&&((this.grams == rhs.grams)||((this.grams!= null)&&this.grams.equals(rhs.grams))));
     }
 
 }

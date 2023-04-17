@@ -1,11 +1,14 @@
 
 package apiCarbon;
 
-import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import javax.annotation.processing.Generated;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -13,11 +16,11 @@ import javax.annotation.processing.Generated;
     "green",
     "bytes",
     "cleanerThan",
-    "statistics"
+    "statistics",
+    "timestamp"
 })
-@Generated("jsonschema2pojo")
-public class Api implements Serializable
-{
+
+public class Api {
 
     @JsonProperty("url")
     private String url;
@@ -29,7 +32,10 @@ public class Api implements Serializable
     private Double cleanerThan;
     @JsonProperty("statistics")
     private Statistics statistics;
-    private final static long serialVersionUID = 520583007133543074L;
+    @JsonProperty("timestamp")
+    private Integer timestamp;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     /**
      * No args constructor for use in serialization
@@ -45,14 +51,16 @@ public class Api implements Serializable
      * @param bytes
      * @param url
      * @param statistics
+     * @param timestamp
      */
-    public Api(String url, Boolean green, Integer bytes, Double cleanerThan, Statistics statistics) {
+    public Api(String url, Boolean green, Integer bytes, Double cleanerThan, Statistics statistics, Integer timestamp) {
         super();
         this.url = url;
         this.green = green;
         this.bytes = bytes;
         this.cleanerThan = cleanerThan;
         this.statistics = statistics;
+        this.timestamp = timestamp;
     }
 
     @JsonProperty("url")
@@ -105,6 +113,26 @@ public class Api implements Serializable
         this.statistics = statistics;
     }
 
+    @JsonProperty("timestamp")
+    public Integer getTimestamp() {
+        return timestamp;
+    }
+
+    @JsonProperty("timestamp")
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -129,6 +157,14 @@ public class Api implements Serializable
         sb.append('=');
         sb.append(((this.statistics == null)?"<null>":this.statistics));
         sb.append(',');
+        sb.append("timestamp");
+        sb.append('=');
+        sb.append(((this.timestamp == null)?"<null>":this.timestamp));
+        sb.append(',');
+        sb.append("additionalProperties");
+        sb.append('=');
+        sb.append(((this.additionalProperties == null)?"<null>":this.additionalProperties));
+        sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');
         } else {
@@ -142,9 +178,11 @@ public class Api implements Serializable
         int result = 1;
         result = ((result* 31)+((this.green == null)? 0 :this.green.hashCode()));
         result = ((result* 31)+((this.cleanerThan == null)? 0 :this.cleanerThan.hashCode()));
-        result = ((result* 31)+((this.url == null)? 0 :this.url.hashCode()));
         result = ((result* 31)+((this.bytes == null)? 0 :this.bytes.hashCode()));
+        result = ((result* 31)+((this.additionalProperties == null)? 0 :this.additionalProperties.hashCode()));
+        result = ((result* 31)+((this.url == null)? 0 :this.url.hashCode()));
         result = ((result* 31)+((this.statistics == null)? 0 :this.statistics.hashCode()));
+        result = ((result* 31)+((this.timestamp == null)? 0 :this.timestamp.hashCode()));
         return result;
     }
 
@@ -157,7 +195,7 @@ public class Api implements Serializable
             return false;
         }
         Api rhs = ((Api) other);
-        return ((((((this.green == rhs.green)||((this.green!= null)&&this.green.equals(rhs.green)))&&((this.cleanerThan == rhs.cleanerThan)||((this.cleanerThan!= null)&&this.cleanerThan.equals(rhs.cleanerThan))))&&((this.url == rhs.url)||((this.url!= null)&&this.url.equals(rhs.url))))&&((this.bytes == rhs.bytes)||((this.bytes!= null)&&this.bytes.equals(rhs.bytes))))&&((this.statistics == rhs.statistics)||((this.statistics!= null)&&this.statistics.equals(rhs.statistics))));
+        return ((((((((this.green == rhs.green)||((this.green!= null)&&this.green.equals(rhs.green)))&&((this.cleanerThan == rhs.cleanerThan)||((this.cleanerThan!= null)&&this.cleanerThan.equals(rhs.cleanerThan))))&&((this.bytes == rhs.bytes)||((this.bytes!= null)&&this.bytes.equals(rhs.bytes))))&&((this.additionalProperties == rhs.additionalProperties)||((this.additionalProperties!= null)&&this.additionalProperties.equals(rhs.additionalProperties))))&&((this.url == rhs.url)||((this.url!= null)&&this.url.equals(rhs.url))))&&((this.statistics == rhs.statistics)||((this.statistics!= null)&&this.statistics.equals(rhs.statistics))))&&((this.timestamp == rhs.timestamp)||((this.timestamp!= null)&&this.timestamp.equals(rhs.timestamp))));
     }
 
 }

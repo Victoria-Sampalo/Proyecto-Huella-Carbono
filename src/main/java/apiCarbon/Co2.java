@@ -1,25 +1,30 @@
 
 package apiCarbon;
 
-import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "grid",
     "renewable"
 })
 
-public class Co2 implements Serializable
-{
+public class Co2 {
 
     @JsonProperty("grid")
     private Grid grid;
     @JsonProperty("renewable")
     private Renewable renewable;
-    private final static long serialVersionUID = 4712639716511267826L;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     /**
      * No args constructor for use in serialization
@@ -59,6 +64,16 @@ public class Co2 implements Serializable
         this.renewable = renewable;
     }
 
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -71,6 +86,10 @@ public class Co2 implements Serializable
         sb.append('=');
         sb.append(((this.renewable == null)?"<null>":this.renewable));
         sb.append(',');
+        sb.append("additionalProperties");
+        sb.append('=');
+        sb.append(((this.additionalProperties == null)?"<null>":this.additionalProperties));
+        sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');
         } else {
@@ -82,6 +101,7 @@ public class Co2 implements Serializable
     @Override
     public int hashCode() {
         int result = 1;
+        result = ((result* 31)+((this.additionalProperties == null)? 0 :this.additionalProperties.hashCode()));
         result = ((result* 31)+((this.grid == null)? 0 :this.grid.hashCode()));
         result = ((result* 31)+((this.renewable == null)? 0 :this.renewable.hashCode()));
         return result;
@@ -96,7 +116,7 @@ public class Co2 implements Serializable
             return false;
         }
         Co2 rhs = ((Co2) other);
-        return (((this.grid == rhs.grid)||((this.grid!= null)&&this.grid.equals(rhs.grid)))&&((this.renewable == rhs.renewable)||((this.renewable!= null)&&this.renewable.equals(rhs.renewable))));
+        return ((((this.additionalProperties == rhs.additionalProperties)||((this.additionalProperties!= null)&&this.additionalProperties.equals(rhs.additionalProperties)))&&((this.grid == rhs.grid)||((this.grid!= null)&&this.grid.equals(rhs.grid))))&&((this.renewable == rhs.renewable)||((this.renewable!= null)&&this.renewable.equals(rhs.renewable))));
     }
 
 }

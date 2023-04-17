@@ -1,7 +1,12 @@
 
 package apiCarbon;
 
-import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -13,8 +18,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "co2"
 })
 
-public class Statistics implements Serializable
-{
+public class Statistics {
 
     @JsonProperty("adjustedBytes")
     private Double adjustedBytes;
@@ -22,7 +26,8 @@ public class Statistics implements Serializable
     private Double energy;
     @JsonProperty("co2")
     private Co2 co2;
-    private final static long serialVersionUID = 4125452695274204739L;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     /**
      * No args constructor for use in serialization
@@ -74,6 +79,16 @@ public class Statistics implements Serializable
         this.co2 = co2;
     }
 
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -90,6 +105,10 @@ public class Statistics implements Serializable
         sb.append('=');
         sb.append(((this.co2 == null)?"<null>":this.co2));
         sb.append(',');
+        sb.append("additionalProperties");
+        sb.append('=');
+        sb.append(((this.additionalProperties == null)?"<null>":this.additionalProperties));
+        sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');
         } else {
@@ -102,6 +121,7 @@ public class Statistics implements Serializable
     public int hashCode() {
         int result = 1;
         result = ((result* 31)+((this.adjustedBytes == null)? 0 :this.adjustedBytes.hashCode()));
+        result = ((result* 31)+((this.additionalProperties == null)? 0 :this.additionalProperties.hashCode()));
         result = ((result* 31)+((this.energy == null)? 0 :this.energy.hashCode()));
         result = ((result* 31)+((this.co2 == null)? 0 :this.co2 .hashCode()));
         return result;
@@ -116,7 +136,7 @@ public class Statistics implements Serializable
             return false;
         }
         Statistics rhs = ((Statistics) other);
-        return ((((this.adjustedBytes == rhs.adjustedBytes)||((this.adjustedBytes!= null)&&this.adjustedBytes.equals(rhs.adjustedBytes)))&&((this.energy == rhs.energy)||((this.energy!= null)&&this.energy.equals(rhs.energy))))&&((this.co2 == rhs.co2)||((this.co2 != null)&&this.co2 .equals(rhs.co2))));
+        return (((((this.adjustedBytes == rhs.adjustedBytes)||((this.adjustedBytes!= null)&&this.adjustedBytes.equals(rhs.adjustedBytes)))&&((this.additionalProperties == rhs.additionalProperties)||((this.additionalProperties!= null)&&this.additionalProperties.equals(rhs.additionalProperties))))&&((this.energy == rhs.energy)||((this.energy!= null)&&this.energy.equals(rhs.energy))))&&((this.co2 == rhs.co2)||((this.co2 != null)&&this.co2 .equals(rhs.co2))));
     }
 
 }

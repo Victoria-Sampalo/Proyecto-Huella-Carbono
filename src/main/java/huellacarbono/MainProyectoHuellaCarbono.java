@@ -5,14 +5,25 @@
 
 package huellacarbono;
 
+import apiCarbon.Api;
+import conexionHTTP.ConexionHTTP;
+import java.io.IOException;
+import serviciosJson.JsonService;
+import java.io.IOException;
+
 /**
  *
  * @author victoria
  */
-public class MainProyectoHuellaCarbono {
+public class MainProyectoHuellaCarbono  {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-        System.out.println("Prueba para crear rama victoria");
+    public static void main(String[] args) throws IOException {
+        String urlBase = "https://api.websitecarbon.com/site?url=www.maralboran.eu";
+        String fichero = ConexionHTTP.peticionHttpGet(urlBase);
+
+        Api chiste = (Api) JsonService.stringToPojo(fichero, Api.class);
+        System.out.println(chiste);
+        System.out.println("-------------");
+
     }
 }
