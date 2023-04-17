@@ -9,5 +9,7 @@ package huellacarbono;
  * @author eli
  */
 public class eli {
-    
+    public static void main(String[] args) {
+        System.out.println("hola");
+    }
 }
