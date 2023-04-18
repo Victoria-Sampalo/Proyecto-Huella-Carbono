@@ -20,7 +20,7 @@ public class MainProyectoHuellaCarbono  {
 
     public static void main(String[] args) throws IOException {
 
-         String urlBase= "https://api.websitecarbon.com/site?url=www.maralboran.eu";
+        String urlBase= "https://api.websitecarbon.com/site?url=www.maralboran.eu";
         
         String fichero = ConexionHTTP.peticionHttpGet(urlBase);
         
