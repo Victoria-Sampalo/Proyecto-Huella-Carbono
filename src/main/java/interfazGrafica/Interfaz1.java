@@ -345,25 +345,7 @@ public class Interfaz1 extends javax.swing.JFrame {
     private javax.swing.JLabel webResultado;
     // End of variables declaration//GEN-END:variables
 
-    //Metodo privado que devuelve un booleano si la url está mal expresada en el textArea
-private static boolean urlValidador(String url){
-
-    try {
-            new URL(url).toURI();
-            return true;
-        }
-        catch (URISyntaxException urlse) {
-            System.out.println("Esta url tiene una sintaxis incorrecta");
-             JOptionPane.showMessageDialog(null, "Esta url tiene una sintaxis incorrecta");
-            return false;
-        }
-        catch (MalformedURLException mfurle) {
-            System.out.println("Esta url está formada de manera incorrecta");
-            JOptionPane.showMessageDialog(null, "Esta url está formada de manera incorrecta");
-            return false;
-        }
-
-}
+  
 
 
 }

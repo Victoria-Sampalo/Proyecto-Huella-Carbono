@@ -4,6 +4,8 @@
  */
 package interfazGrafica;
 
+import PeticionApi.PeticionApi;
+
 
 /**
  *
@@ -249,7 +251,8 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonStartActionPerformed
-
+        
+       
         
         
     }//GEN-LAST:event_botonStartActionPerformed

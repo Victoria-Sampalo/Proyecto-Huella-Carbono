@@ -1,0 +1,72 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package PeticionApi;
+
+import apiCarbon.Api;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import conexionHTTP.ConexionHTTP;
+import interfazGrafica.Interfaz1;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import serviciosJson.JsonService;
+
+/**
+ *
+ * @author victoria
+ */
+public class PeticionApi {
+    String texto= ""; 
+    //Método que valida la url que indica el usuario por pantalla y verifica si la url es válida o no.
+    public static Api peticionDatoUrl(JTextField UrlTexto){
+        //Si está vacio o si la url no es valida
+       if(!UrlTexto.getText().isEmpty() ||urlValidador(UrlTexto.getText())){
+        
+            //Igualo la url que luego saldrá por pantalla
+         String  urlBase ="https://api.websitecarbon.com/site?url=" + UrlTexto.getText();       
+          //Llamo a realizar la conexion con la api 
+          
+             String fichero = "";
+           try {   
+                fichero = ConexionHTTP.peticionHttpGet(urlBase);
+     
+          
+                Api respuesta= (Api) JsonService.stringToPojo(fichero, Api.class);
+                 return respuesta;
+          
+        }catch(Exception e){
+         return null;
+        
+        }
+     
+       }
+       return null;
+    }
+    
+      //Metodo privado que devuelve un booleano si la url está mal expresada en el textArea
+private static boolean urlValidador(String url){
+
+    try {
+            new URL(url).toURI();
+            return true;
+        }
+        catch (URISyntaxException urlse) {
+            System.out.println("Esta url tiene una sintaxis incorrecta");
+             JOptionPane.showMessageDialog(null, "Esta url tiene una sintaxis incorrecta");
+            return false;
+        }
+        catch (MalformedURLException mfurle) {
+            System.out.println("Esta url está formada de manera incorrecta");
+            JOptionPane.showMessageDialog(null, "Esta url está formada de manera incorrecta");
+            return false;
+        }
+
+}
+}
