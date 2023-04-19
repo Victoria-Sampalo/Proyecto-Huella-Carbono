@@ -30,22 +30,23 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         botonStart = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        textoURL = new javax.swing.JTextField();
         panelCiudad = new javax.swing.JPanel();
+        botonReset = new javax.swing.JButton();
         jPanelResultado = new javax.swing.JPanel();
         webResultado = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        textoGramosCo2 = new javax.swing.JLabel();
         co2 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        textobytes = new javax.swing.JLabel();
         bytes = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        textoenergia = new javax.swing.JLabel();
         energy = new javax.swing.JLabel();
         green = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        textoBooleanEcologico = new javax.swing.JLabel();
+        IconEcologico = new javax.swing.JLabel();
+        IconCo2 = new javax.swing.JLabel();
+        IconBytes = new javax.swing.JLabel();
+        IconTierra = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -79,31 +80,54 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jPanel2.add(botonStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 260, 50));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField1.setText("www.");
-        jTextField1.setBorder(null);
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        jTextField1.setDragEnabled(true);
-        jTextField1.setMargin(new java.awt.Insets(6, 6, 6, 6));
-        jTextField1.setSelectionColor(new java.awt.Color(255, 255, 255));
-        jTextField1.setVerifyInputWhenFocusTarget(false);
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 560, 40));
+        textoURL.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        textoURL.setForeground(new java.awt.Color(102, 102, 102));
+        textoURL.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        textoURL.setText("www.");
+        textoURL.setBorder(null);
+        textoURL.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        textoURL.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        textoURL.setDragEnabled(true);
+        textoURL.setMargin(new java.awt.Insets(6, 6, 6, 6));
+        textoURL.setSelectionColor(new java.awt.Color(255, 255, 255));
+        textoURL.setVerifyInputWhenFocusTarget(false);
+        jPanel2.add(textoURL, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 560, 40));
 
         panelCiudad.setOpaque(false);
+
+        botonReset.setBackground(new java.awt.Color(246, 131, 48));
+        botonReset.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        botonReset.setForeground(new java.awt.Color(255, 255, 255));
+        botonReset.setText("Reset");
+        botonReset.setBorder(null);
+        botonReset.setBorderPainted(false);
+        botonReset.setDefaultCapable(false);
+        botonReset.setFocusPainted(false);
+        botonReset.setFocusable(false);
+        botonReset.setRequestFocusEnabled(false);
+        botonReset.setRolloverEnabled(false);
+        botonReset.setVerifyInputWhenFocusTarget(false);
+        botonReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonResetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelCiudadLayout = new javax.swing.GroupLayout(panelCiudad);
         panelCiudad.setLayout(panelCiudadLayout);
         panelCiudadLayout.setHorizontalGroup(
             panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1370, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCiudadLayout.createSequentialGroup()
+                .addContainerGap(1060, Short.MAX_VALUE)
+                .addComponent(botonReset, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
         panelCiudadLayout.setVerticalGroup(
             panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 770, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCiudadLayout.createSequentialGroup()
+                .addContainerGap(640, Short.MAX_VALUE)
+                .addComponent(botonReset, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
         );
 
         jPanel2.add(panelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(-680, 0, 1370, 770));
@@ -118,11 +142,11 @@ public class Interfaz extends javax.swing.JFrame {
         webResultado.setText("www.mardealboran.eu");
         jPanelResultado.add(webResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 707, 347, 32));
 
-        jLabel3.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 15)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("cantidad de Co2");
-        jPanelResultado.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 399, 185, 17));
+        textoGramosCo2.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 15)); // NOI18N
+        textoGramosCo2.setForeground(new java.awt.Color(255, 255, 255));
+        textoGramosCo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textoGramosCo2.setText("gramos de Co2");
+        jPanelResultado.add(textoGramosCo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 399, 185, 17));
 
         co2.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 24)); // NOI18N
         co2.setForeground(new java.awt.Color(255, 102, 0));
@@ -130,11 +154,11 @@ public class Interfaz extends javax.swing.JFrame {
         co2.setText("1235698563");
         jPanelResultado.add(co2, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 364, 185, 29));
 
-        jLabel9.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 15)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("bytes transferidos");
-        jPanelResultado.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 399, 185, 17));
+        textobytes.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 15)); // NOI18N
+        textobytes.setForeground(new java.awt.Color(255, 255, 255));
+        textobytes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textobytes.setText("bytes transferidos");
+        jPanelResultado.add(textobytes, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 399, 185, 17));
 
         bytes.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 24)); // NOI18N
         bytes.setForeground(new java.awt.Color(255, 102, 0));
@@ -142,11 +166,11 @@ public class Interfaz extends javax.swing.JFrame {
         bytes.setText("1235698563");
         jPanelResultado.add(bytes, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 364, 185, 29));
 
-        jLabel11.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 15)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("energía necesaria");
-        jPanelResultado.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 652, 185, 17));
+        textoenergia.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 15)); // NOI18N
+        textoenergia.setForeground(new java.awt.Color(255, 255, 255));
+        textoenergia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textoenergia.setText("energía necesaria");
+        jPanelResultado.add(textoenergia, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 652, 185, 17));
 
         energy.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 24)); // NOI18N
         energy.setForeground(new java.awt.Color(255, 102, 0));
@@ -160,41 +184,41 @@ public class Interfaz extends javax.swing.JFrame {
         green.setText("ecológico");
         jPanelResultado.add(green, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 617, 185, 29));
 
-        jLabel14.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 15)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("host sostenible");
-        jPanelResultado.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 652, 185, 17));
+        textoBooleanEcologico.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 15)); // NOI18N
+        textoBooleanEcologico.setForeground(new java.awt.Color(255, 255, 255));
+        textoBooleanEcologico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textoBooleanEcologico.setText("host sostenible");
+        jPanelResultado.add(textoBooleanEcologico, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 652, 185, 17));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/byte.png"))); // NOI18N
-        jPanelResultado.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 457, 155, 154));
+        IconEcologico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/byte.png"))); // NOI18N
+        jPanelResultado.add(IconEcologico, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 457, 155, 154));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/co2.png"))); // NOI18N
-        jPanelResultado.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 204, 155, 154));
+        IconCo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/co2.png"))); // NOI18N
+        jPanelResultado.add(IconCo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 204, 155, 154));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/electricidad.png"))); // NOI18N
-        jPanelResultado.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(404, 204, 155, 154));
+        IconBytes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/electricidad.png"))); // NOI18N
+        jPanelResultado.add(IconBytes, new org.netbeans.lib.awtextra.AbsoluteConstraints(404, 204, 155, 154));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/plantea.png"))); // NOI18N
-        jPanelResultado.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 467, 155, 154));
+        IconTierra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/plantea.png"))); // NOI18N
+        jPanelResultado.add(IconTierra, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 467, 155, 154));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ciudad.png"))); // NOI18N
         jLabel8.setText("jLabel8");
         jPanelResultado.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-670, 0, -1, 770));
 
         webResultado.setVisible(false);
-        jLabel3.setVisible(false);
+        textoGramosCo2.setVisible(false);
         co2.setVisible(false);
-        jLabel9.setVisible(false);
+        textobytes.setVisible(false);
         bytes.setVisible(false);
-        jLabel11.setVisible(false);
+        textoenergia.setVisible(false);
         energy.setVisible(false);
         green.setVisible(false);
-        jLabel14.setVisible(false);
-        jLabel1.setVisible(false);
-        jLabel2.setVisible(false);
-        jLabel4.setVisible(false);
-        jLabel5.setVisible(false);
+        textoBooleanEcologico.setVisible(false);
+        IconEcologico.setVisible(false);
+        IconCo2.setVisible(false);
+        IconBytes.setVisible(false);
+        IconTierra.setVisible(false);
 
         jPanel2.add(jPanelResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 690, 770));
 
@@ -218,10 +242,10 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void botonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonStartActionPerformed
 
-        //Instancio un objeto Api donde llama a la clase 
-        Api respuesta = PeticionApi.peticionDatoUrl(jTextField1.getText());
+        //Instancio un objeto Api donde llama a la clase
+        Api respuesta = PeticionApi.peticionDatoUrl(textoURL.getText());
 
-        jLabel8.setVisible(false);
+//        jLabel8.setVisible(false);
 
         if (respuesta != null) {
 
@@ -232,44 +256,88 @@ public class Interfaz extends javax.swing.JFrame {
             energy.setText("%.5f".formatted(respuesta.getStatistics().getEnergy()));
 
             green.setText(respuesta.getGreen() ? "Es ecológico" : "No es ecológico");
-
-            //Ponemos visible el panel resultado 
-            webResultado.setVisible(true);
-            jLabel3.setVisible(true);
-            co2.setVisible(true);
-            jLabel9.setVisible(true);
-            bytes.setVisible(true);
-            jLabel11.setVisible(true);
-            energy.setVisible(true);
-            green.setVisible(true);
-            jLabel14.setVisible(true);
-            jLabel1.setVisible(true);
-            jLabel2.setVisible(true);
-            jLabel4.setVisible(true);
-            jLabel5.setVisible(true);
-
+            
+            webResultado.setText(textoURL.getText());
+            
+            //Mostramos los paneles de resultado
+            mostrarPanelesResultado(true);
+          
             /*
-           CODIGO INVISIBLE DEL PANEL JRESULTADO
-           webResultado.setVisible(false);
-jLabel3.setVisible(false);
-co2.setVisible(false);
-jLabel9.setVisible(false);
-bytes.setVisible(false);
-jLabel11.setVisible(false);
-energy.setVisible(false);
-green.setVisible(false);
-jLabel14.setVisible(false);
-jLabel1.setVisible(false);
-jLabel2.setVisible(false);
-jLabel4.setVisible(false);
-jLabel5.setVisible(false);
-jLabel8.setVisible(false);
-             */
+            CODIGO INVISIBLE DEL PANEL JRESULTADO
+            webResultado.setVisible(false);
+            jLabel3.setVisible(false);
+            co2.setVisible(false);
+            jLabel9.setVisible(false);
+            bytes.setVisible(false);
+            jLabel11.setVisible(false);
+            energy.setVisible(false);
+            green.setVisible(false);
+            jLabel14.setVisible(false);
+            jLabel1.setVisible(false);
+            jLabel2.setVisible(false);
+            jLabel4.setVisible(false);
+            jLabel5.setVisible(false);
+            jLabel8.setVisible(false);
+            */
         }
-
 
     }//GEN-LAST:event_botonStartActionPerformed
 
+    private void botonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonResetActionPerformed
+        
+        //Pone todos los paneles resultado en oculto
+        //Muestra el panel ciudad
+        mostrarPanelesResultado(false);
+        
+        //TextArea de resultado a null
+        textoURL.setText("www.");
+        
+        
+        
+    }//GEN-LAST:event_botonResetActionPerformed
+
+    private  void cambiarAPanelResultados(){
+      
+      //Ponemos visible el panel resultado
+            webResultado.setVisible(true);
+            textoGramosCo2.setVisible(true);
+            co2.setVisible(true);
+            textobytes.setVisible(true);
+            bytes.setVisible(true);
+            textoenergia.setVisible(true);
+            energy.setVisible(true);
+            green.setVisible(true);
+            textoBooleanEcologico.setVisible(true);
+            IconEcologico.setVisible(true);
+            IconCo2.setVisible(true);
+            IconBytes.setVisible(true);
+            IconTierra.setVisible(true);
+
+    
+    }
+    
+    private void mostrarPanelesResultado(Boolean mostrar){
+        //Invisible el jLabel, siempre al contrario
+           jLabel8.setVisible(!mostrar);
+           
+           //Paneles de resultado
+         webResultado.setVisible(mostrar);
+            textoGramosCo2.setVisible(mostrar);
+            co2.setVisible(mostrar);
+            textobytes.setVisible(mostrar);
+            bytes.setVisible(mostrar);
+            textoenergia.setVisible(mostrar);
+            energy.setVisible(mostrar);
+            green.setVisible(mostrar);
+            textoBooleanEcologico.setVisible(mostrar);
+            IconEcologico.setVisible(mostrar);
+            IconCo2.setVisible(mostrar);
+            IconBytes.setVisible(mostrar);
+            IconTierra.setVisible(mostrar);
+    
+    
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -307,25 +375,26 @@ jLabel8.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel IconBytes;
+    private javax.swing.JLabel IconCo2;
+    private javax.swing.JLabel IconEcologico;
+    private javax.swing.JLabel IconTierra;
+    private javax.swing.JButton botonReset;
     private javax.swing.JButton botonStart;
     private javax.swing.JLabel bytes;
     private javax.swing.JLabel co2;
     private javax.swing.JLabel energy;
     private javax.swing.JLabel green;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelResultado;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelCiudad;
+    private javax.swing.JLabel textoBooleanEcologico;
+    private javax.swing.JLabel textoGramosCo2;
+    private javax.swing.JTextField textoURL;
+    private javax.swing.JLabel textobytes;
+    private javax.swing.JLabel textoenergia;
     private javax.swing.JLabel webResultado;
     // End of variables declaration//GEN-END:variables
 
