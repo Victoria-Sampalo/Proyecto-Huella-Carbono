@@ -5,15 +5,10 @@
 package PeticionApi;
 
 import apiCarbon.Api;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import conexionHTTP.ConexionHTTP;
-import interfazGrafica.Interfaz1;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import serviciosJson.JsonService;
