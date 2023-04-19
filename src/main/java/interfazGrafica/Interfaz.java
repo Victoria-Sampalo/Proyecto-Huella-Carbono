@@ -31,6 +31,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         botonStart = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        panelCiudad = new javax.swing.JPanel();
         jPanelResultado = new javax.swing.JPanel();
         webResultado = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -45,7 +46,6 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        panelCiudad = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -93,6 +93,22 @@ public class Interfaz extends javax.swing.JFrame {
         jTextField1.setVerifyInputWhenFocusTarget(false);
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 560, 40));
 
+        panelCiudad.setOpaque(false);
+
+        javax.swing.GroupLayout panelCiudadLayout = new javax.swing.GroupLayout(panelCiudad);
+        panelCiudad.setLayout(panelCiudadLayout);
+        panelCiudadLayout.setHorizontalGroup(
+            panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1370, Short.MAX_VALUE)
+        );
+        panelCiudadLayout.setVerticalGroup(
+            panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 770, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(panelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(-680, 0, 1370, 770));
+
+        jPanelResultado.setEnabled(false);
         jPanelResultado.setOpaque(false);
         jPanelResultado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -162,23 +178,23 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/plantea.png"))); // NOI18N
         jPanelResultado.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 467, 155, 154));
 
-        panelCiudad.setOpaque(false);
-
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ciudad.png"))); // NOI18N
         jLabel8.setText("jLabel8");
+        jPanelResultado.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-670, 0, -1, 770));
 
-        javax.swing.GroupLayout panelCiudadLayout = new javax.swing.GroupLayout(panelCiudad);
-        panelCiudad.setLayout(panelCiudadLayout);
-        panelCiudadLayout.setHorizontalGroup(
-            panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        panelCiudadLayout.setVerticalGroup(
-            panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
-        );
-
-        jPanelResultado.add(panelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(-680, 0, 1370, 770));
+        webResultado.setVisible(false);
+        jLabel3.setVisible(false);
+        co2.setVisible(false);
+        jLabel9.setVisible(false);
+        bytes.setVisible(false);
+        jLabel11.setVisible(false);
+        energy.setVisible(false);
+        green.setVisible(false);
+        jLabel14.setVisible(false);
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
+        jLabel4.setVisible(false);
+        jLabel5.setVisible(false);
 
         jPanel2.add(jPanelResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 690, 770));
 
@@ -205,6 +221,7 @@ public class Interfaz extends javax.swing.JFrame {
         //Instancio un objeto Api donde llama a la clase 
         Api respuesta = PeticionApi.peticionDatoUrl(jTextField1.getText());
 
+        jLabel8.setVisible(false);
 
         if (respuesta != null) {
 
@@ -216,6 +233,38 @@ public class Interfaz extends javax.swing.JFrame {
 
             green.setText(respuesta.getGreen() ? "Es ecológico" : "No es ecológico");
 
+            //Ponemos visible el panel resultado 
+            webResultado.setVisible(true);
+            jLabel3.setVisible(true);
+            co2.setVisible(true);
+            jLabel9.setVisible(true);
+            bytes.setVisible(true);
+            jLabel11.setVisible(true);
+            energy.setVisible(true);
+            green.setVisible(true);
+            jLabel14.setVisible(true);
+            jLabel1.setVisible(true);
+            jLabel2.setVisible(true);
+            jLabel4.setVisible(true);
+            jLabel5.setVisible(true);
+
+            /*
+           CODIGO INVISIBLE DEL PANEL JRESULTADO
+           webResultado.setVisible(false);
+jLabel3.setVisible(false);
+co2.setVisible(false);
+jLabel9.setVisible(false);
+bytes.setVisible(false);
+jLabel11.setVisible(false);
+energy.setVisible(false);
+green.setVisible(false);
+jLabel14.setVisible(false);
+jLabel1.setVisible(false);
+jLabel2.setVisible(false);
+jLabel4.setVisible(false);
+jLabel5.setVisible(false);
+jLabel8.setVisible(false);
+             */
         }
 
 
@@ -252,6 +301,7 @@ public class Interfaz extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Interfaz().setVisible(true);
+
             }
         });
     }
