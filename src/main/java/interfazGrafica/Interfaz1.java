@@ -4,12 +4,24 @@
  */
 package interfazGrafica;
 
+import apiCarbon.Api;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import conexionHTTP.ConexionHTTP;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import serviciosJson.JsonService;
+
 
 /**
  *
  * @author eli
  */
-public class Interfaz extends javax.swing.JFrame {
+public class Interfaz1 extends javax.swing.JFrame {
 
     private String co2String;
     private String bytesString; 
@@ -18,7 +30,7 @@ public class Interfaz extends javax.swing.JFrame {
     private String urlBase;
     
     
-    public Interfaz() {
+    public Interfaz1() {
         initComponents();
         this.urlBase="";
         this.co2String="";
@@ -37,7 +49,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         botonStart = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        UrlTexto = new javax.swing.JTextField();
         jPanelResultado = new javax.swing.JPanel();
         webResultado = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -78,20 +90,19 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jPanel2.add(botonStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 650, 200, 60));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField1.setText("  http://www...");
-        jTextField1.setBorder(null);
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        jTextField1.setDragEnabled(true);
-        jTextField1.setMargin(new java.awt.Insets(6, 6, 6, 6));
-        jTextField1.setOpaque(true);
-        jTextField1.setSelectionColor(new java.awt.Color(255, 255, 255));
-        jTextField1.setVerifyInputWhenFocusTarget(false);
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, 530, 40));
+        UrlTexto.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        UrlTexto.setForeground(new java.awt.Color(102, 102, 102));
+        UrlTexto.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        UrlTexto.setText("  http://www...");
+        UrlTexto.setBorder(null);
+        UrlTexto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        UrlTexto.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        UrlTexto.setDragEnabled(true);
+        UrlTexto.setMargin(new java.awt.Insets(6, 6, 6, 6));
+        UrlTexto.setOpaque(true);
+        UrlTexto.setSelectionColor(new java.awt.Color(255, 255, 255));
+        UrlTexto.setVerifyInputWhenFocusTarget(false);
+        jPanel2.add(UrlTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, 530, 40));
 
         jPanelResultado.setOpaque(false);
 
@@ -250,8 +261,31 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void botonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonStartActionPerformed
 
+        if(!UrlTexto.getText().isEmpty() ||urlValidador(UrlTexto.getText())){
         
+            //Igualo la url que luego saldrá por pantalla
+          urlBase ="https://api.websitecarbon.com/site?url=" + UrlTexto.getText();       
+          //Llamo a realizar la conexion con la api 
+          
+             String fichero = "";
+            try {
+                fichero = ConexionHTTP.peticionHttpGet(urlBase);
+            } catch (IOException ex) {
+                Logger.getLogger(Interfaz1.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
+            try {
+                Api respuesta= (Api) JsonService.stringToPojo(fichero, Api.class);
+            } catch (JsonProcessingException ex) {
+                Logger.getLogger(Interfaz1.class.getName()).log(Level.SEVERE, null, ex);
+            }
+          
+        }else{
+        
+            JOptionPane.showMessageDialog(null, "Error en el campo de insercción");
+        
+        }
+       
     }//GEN-LAST:event_botonStartActionPerformed
 
     /**
@@ -271,25 +305,27 @@ public class Interfaz extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interfaz1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interfaz1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interfaz1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interfaz1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Interfaz().setVisible(true);
+                new Interfaz1().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField UrlTexto;
     private javax.swing.JButton botonStart;
     private javax.swing.JLabel bytes;
     private javax.swing.JLabel co2;
@@ -306,11 +342,28 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelResultado;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel webResultado;
     // End of variables declaration//GEN-END:variables
 
+    //Metodo privado que devuelve un booleano si la url está mal expresada en el textArea
+private static boolean urlValidador(String url){
 
+    try {
+            new URL(url).toURI();
+            return true;
+        }
+        catch (URISyntaxException urlse) {
+            System.out.println("Esta url tiene una sintaxis incorrecta");
+             JOptionPane.showMessageDialog(null, "Esta url tiene una sintaxis incorrecta");
+            return false;
+        }
+        catch (MalformedURLException mfurle) {
+            System.out.println("Esta url está formada de manera incorrecta");
+            JOptionPane.showMessageDialog(null, "Esta url está formada de manera incorrecta");
+            return false;
+        }
+
+}
 
 
 }
