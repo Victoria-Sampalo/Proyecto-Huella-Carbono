@@ -20,12 +20,12 @@ import serviciosJson.JsonService;
 public class PeticionApi {
     String texto= ""; 
     //Método que valida la url que indica el usuario por pantalla y verifica si la url es válida o no.
-    public static Api peticionDatoUrl(JTextField UrlTexto){
+    public static Api peticionDatoUrl(String UrlTexto){
         //Si está vacio o si la url no es valida
-       if(!UrlTexto.getText().isEmpty() ||urlValidador(UrlTexto.getText())){
+       if(!UrlTexto.isEmpty() ||urlValidador(UrlTexto)){
         
             //Igualo la url que luego saldrá por pantalla
-         String  urlBase ="https://api.websitecarbon.com/site?url=" + UrlTexto.getText();       
+         String  urlBase ="https://api.websitecarbon.com/site?url=" + UrlTexto;   
           //Llamo a realizar la conexion con la api 
           
              String fichero = "";

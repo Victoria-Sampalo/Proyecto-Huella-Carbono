@@ -5,7 +5,8 @@
 package interfazGrafica;
 
 import PeticionApi.PeticionApi;
-
+import apiCarbon.Api;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -13,19 +14,9 @@ import PeticionApi.PeticionApi;
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    private String co2String;
-    private String bytesString; 
-    private String energyString;
-    private Boolean ecologico;
-    private String urlBase;
-    
-    
     public Interfaz() {
         initComponents();
-        this.urlBase="";
-        this.co2String="";
-        this.bytesString="";
-        this.energyString="";
+
     }
 
     /**
@@ -210,10 +201,24 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonStartActionPerformed
-        
-       
-        
-        
+
+        //Instancio un objeto Api donde llama a la clase 
+        Api respuesta = PeticionApi.peticionDatoUrl(jTextField1.getText());
+
+
+        if (respuesta != null) {
+
+            co2.setText("%.5f".formatted(respuesta.getStatistics().getCo2().getGrid().getGrams()));
+
+            bytes.setText(respuesta.getBytes().toString());
+
+            energy.setText("%.5f".formatted(respuesta.getStatistics().getEnergy()));
+
+            green.setText(respuesta.getGreen() ? "Es ecológico" : "No es ecológico");
+
+        }
+
+
     }//GEN-LAST:event_botonStartActionPerformed
 
     /**
@@ -274,9 +279,4 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel webResultado;
     // End of variables declaration//GEN-END:variables
 
-
-
-
 }
-
-
