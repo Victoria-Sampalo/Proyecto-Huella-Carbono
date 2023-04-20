@@ -262,23 +262,11 @@ public class Interfaz extends javax.swing.JFrame {
             //Mostramos los paneles de resultado
             mostrarPanelesResultado(true);
           
-            /*
-            CODIGO INVISIBLE DEL PANEL JRESULTADO
-            webResultado.setVisible(false);
-            jLabel3.setVisible(false);
-            co2.setVisible(false);
-            jLabel9.setVisible(false);
-            bytes.setVisible(false);
-            jLabel11.setVisible(false);
-            energy.setVisible(false);
-            green.setVisible(false);
-            jLabel14.setVisible(false);
-            jLabel1.setVisible(false);
-            jLabel2.setVisible(false);
-            jLabel4.setVisible(false);
-            jLabel5.setVisible(false);
-            jLabel8.setVisible(false);
-            */
+          
+        }else{
+        
+            InterfazError error = new InterfazError();
+        
         }
 
     }//GEN-LAST:event_botonStartActionPerformed
