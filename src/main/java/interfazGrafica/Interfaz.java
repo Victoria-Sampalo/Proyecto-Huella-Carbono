@@ -29,11 +29,11 @@ public class Interfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        botonReset = new javax.swing.JButton();
         botonStart = new javax.swing.JButton();
         textoURL = new javax.swing.JTextField();
-        panelCiudad = new javax.swing.JPanel();
-        botonReset = new javax.swing.JButton();
         jPanelResultado = new javax.swing.JPanel();
+        labelError = new javax.swing.JLabel();
         webResultado = new javax.swing.JLabel();
         textoGramosCo2 = new javax.swing.JLabel();
         co2 = new javax.swing.JLabel();
@@ -48,6 +48,7 @@ public class Interfaz extends javax.swing.JFrame {
         IconBytes = new javax.swing.JLabel();
         IconTierra = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        panelCiudad = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,6 +61,25 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(1366, 768));
         jPanel2.setRequestFocusEnabled(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        botonReset.setBackground(new java.awt.Color(246, 131, 48));
+        botonReset.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        botonReset.setForeground(new java.awt.Color(255, 255, 255));
+        botonReset.setText("Reset");
+        botonReset.setBorder(null);
+        botonReset.setBorderPainted(false);
+        botonReset.setDefaultCapable(false);
+        botonReset.setFocusPainted(false);
+        botonReset.setFocusable(false);
+        botonReset.setRequestFocusEnabled(false);
+        botonReset.setRolloverEnabled(false);
+        botonReset.setVerifyInputWhenFocusTarget(false);
+        botonReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonResetActionPerformed(evt);
+            }
+        });
+        jPanel2.add(botonReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 640, 260, 50));
 
         botonStart.setBackground(new java.awt.Color(246, 131, 48));
         botonStart.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
@@ -93,48 +113,13 @@ public class Interfaz extends javax.swing.JFrame {
         textoURL.setVerifyInputWhenFocusTarget(false);
         jPanel2.add(textoURL, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 560, 40));
 
-        panelCiudad.setOpaque(false);
-
-        botonReset.setBackground(new java.awt.Color(246, 131, 48));
-        botonReset.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
-        botonReset.setForeground(new java.awt.Color(255, 255, 255));
-        botonReset.setText("Reset");
-        botonReset.setBorder(null);
-        botonReset.setBorderPainted(false);
-        botonReset.setDefaultCapable(false);
-        botonReset.setFocusPainted(false);
-        botonReset.setFocusable(false);
-        botonReset.setRequestFocusEnabled(false);
-        botonReset.setRolloverEnabled(false);
-        botonReset.setVerifyInputWhenFocusTarget(false);
-        botonReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonResetActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelCiudadLayout = new javax.swing.GroupLayout(panelCiudad);
-        panelCiudad.setLayout(panelCiudadLayout);
-        panelCiudadLayout.setHorizontalGroup(
-            panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCiudadLayout.createSequentialGroup()
-                .addContainerGap(1060, Short.MAX_VALUE)
-                .addComponent(botonReset, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
-        );
-        panelCiudadLayout.setVerticalGroup(
-            panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCiudadLayout.createSequentialGroup()
-                .addContainerGap(640, Short.MAX_VALUE)
-                .addComponent(botonReset, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
-        );
-
-        jPanel2.add(panelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(-680, 0, 1370, 770));
-
         jPanelResultado.setEnabled(false);
         jPanelResultado.setOpaque(false);
         jPanelResultado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelError.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notFoundImage690x670.jpg"))); // NOI18N
+        labelError.setVisible(false);
+        jPanelResultado.add(labelError, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 690, 670));
 
         webResultado.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         webResultado.setForeground(new java.awt.Color(255, 255, 255));
@@ -206,6 +191,21 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel8.setText("jLabel8");
         jPanelResultado.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-670, 0, -1, 770));
 
+        panelCiudad.setOpaque(false);
+
+        javax.swing.GroupLayout panelCiudadLayout = new javax.swing.GroupLayout(panelCiudad);
+        panelCiudad.setLayout(panelCiudadLayout);
+        panelCiudadLayout.setHorizontalGroup(
+            panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1370, Short.MAX_VALUE)
+        );
+        panelCiudadLayout.setVerticalGroup(
+            panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 770, Short.MAX_VALUE)
+        );
+
+        jPanelResultado.add(panelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1350, 0, -1, -1));
+
         webResultado.setVisible(false);
         textoGramosCo2.setVisible(false);
         co2.setVisible(false);
@@ -265,7 +265,8 @@ public class Interfaz extends javax.swing.JFrame {
           
         }else{
         
-            InterfazError error = new InterfazError();
+            labelError.setVisible(true);
+            mostrarPanelesResultado(false);
         
         }
 
@@ -276,7 +277,7 @@ public class Interfaz extends javax.swing.JFrame {
         //Pone todos los paneles resultado en oculto
         //Muestra el panel ciudad
         mostrarPanelesResultado(false);
-        
+        labelError.setVisible(false);
         //TextArea de resultado a null
         textoURL.setText("www.");
         
@@ -377,6 +378,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelResultado;
+    private javax.swing.JLabel labelError;
     private javax.swing.JPanel panelCiudad;
     private javax.swing.JLabel textoBooleanEcologico;
     private javax.swing.JLabel textoGramosCo2;
