@@ -25,7 +25,7 @@ public class Api {
     @JsonProperty("url")
     private String url;
     @JsonProperty("green")
-    private Boolean green;
+    private String green;
     @JsonProperty("bytes")
     private Integer bytes;
     @JsonProperty("cleanerThan")
@@ -53,7 +53,7 @@ public class Api {
      * @param statistics
      * @param timestamp
      */
-    public Api(String url, Boolean green, Integer bytes, Double cleanerThan, Statistics statistics, Integer timestamp) {
+    public Api(String url, String green, Integer bytes, Double cleanerThan, Statistics statistics, Integer timestamp) {
         super();
         this.url = url;
         this.green = green;
@@ -74,12 +74,12 @@ public class Api {
     }
 
     @JsonProperty("green")
-    public Boolean getGreen() {
+    public String getGreen() {
         return green;
     }
 
     @JsonProperty("green")
-    public void setGreen(Boolean green) {
+    public void setGreen(String green) {
         this.green = green;
     }
 

@@ -82,7 +82,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="390" y="640" width="260" height="50"/>
+              <AbsoluteConstraints x="260" y="610" width="170" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -114,7 +114,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="640" width="260" height="50"/>
+              <AbsoluteConstraints x="60" y="610" width="170" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -140,7 +140,7 @@
               <Insets value="[6, 6, 6, 6]"/>
             </Property>
             <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="99" green="99" red="0" type="rgb"/>
             </Property>
             <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
           </Properties>
@@ -156,7 +156,7 @@
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="labelPaginaResultado.setVisible(false);&#xa;labelSabiasQue.setVisible(false);&#xa;webResultado.setVisible(false);&#xa;textoGramosCo2.setVisible(false);&#xa;co2.setVisible(false);&#xa;textobytes.setVisible(false);&#xa;bytes.setVisible(false);&#xa;textoenergia.setVisible(false);&#xa;energy.setVisible(false);&#xa;green.setVisible(false);&#xa;textoBooleanEcologico.setVisible(false);&#xa;IconEcologico.setVisible(false);&#xa;IconCo2.setVisible(false);&#xa;IconBytes.setVisible(false);&#xa;IconTierra.setVisible(false);"/>
+            <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="labelPaginaResultado.setVisible(false);&#xa;labelSabiasQue.setVisible(false);&#xa;webResultado.setVisible(false);&#xa;textoGramosCo2.setVisible(false);&#xa;co2.setVisible(false);&#xa;textobytes.setVisible(false);&#xa;bytes.setVisible(false);&#xa;textoenergia.setVisible(false);&#xa;energy.setVisible(false);&#xa;green.setVisible(false);&#xa;textoBooleanEcologico.setVisible(false);&#xa;IconEcologico.setVisible(false);&#xa;IconCo2.setVisible(false);&#xa;IconBytes.setVisible(false);&#xa;IconTierra.setVisible(false);&#xa;tazas.setVisible(false);&#xa;kg.setVisible(false);&#xa;sumo.setVisible(false);"/>
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -287,6 +287,23 @@
                 </Constraint>
               </Constraints>
             </Component>
+            <Component class="javax.swing.JLabel" name="kg">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="28" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="3d" green="3f" red="0" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="250"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="180" y="130" width="60" height="30"/>
+                </Constraint>
+              </Constraints>
+            </Component>
             <Component class="javax.swing.JLabel" name="energy">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -360,6 +377,40 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="160" y="260" width="110" height="130"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JLabel" name="tazas">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="28" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="3d" green="3f" red="0" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="40000"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="200" y="190" width="110" height="50"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JLabel" name="sumo">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="28" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="3d" green="3f" red="0" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="2.65"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="90" y="160" width="70" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
