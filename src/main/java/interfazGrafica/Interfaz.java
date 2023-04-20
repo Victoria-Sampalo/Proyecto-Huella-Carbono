@@ -188,8 +188,8 @@ public class Interfaz extends javax.swing.JFrame {
         textoBooleanEcologico.setText("host sostenible");
         jPanelResultado.add(textoBooleanEcologico, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 630, 185, 17));
 
-        IconEcologico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/byte.png"))); // NOI18N
-        jPanelResultado.add(IconEcologico, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, 120, 130));
+        IconEcologico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/plantea.png"))); // NOI18N
+        jPanelResultado.add(IconEcologico, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, 130, 130));
 
         IconCo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/co2.png"))); // NOI18N
         IconCo2.setRequestFocusEnabled(false);
@@ -207,10 +207,10 @@ public class Interfaz extends javax.swing.JFrame {
         sumo.setText("2.65");
         jPanelResultado.add(sumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 70, 40));
 
-        IconBytes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/electricidad.png"))); // NOI18N
+        IconBytes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/byte.png"))); // NOI18N
         jPanelResultado.add(IconBytes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 100, 130));
 
-        IconTierra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/plantea.png"))); // NOI18N
+        IconTierra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/electricidad.png"))); // NOI18N
         jPanelResultado.add(IconTierra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 100, 130));
 
         labelCiudad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ciudad.png"))); // NOI18N
@@ -295,7 +295,7 @@ public class Interfaz extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_botonStartActionPerformed
-    
+    //
     private void cambiarLabelResultado(Api respuesta) {
         co2.setText("%.5f".formatted(respuesta.getStatistics().getCo2().getGrid().getGrams())); 
         bytes.setText(respuesta.getBytes().toString());
@@ -324,11 +324,11 @@ public class Interfaz extends javax.swing.JFrame {
     private String[] frase(double co2) {
         String[] listaFrase = new String[3];
         double kg = co2 * 120;
-        double sumo = kg / 150;
+        double latasRefresco = kg / 0.5;
         double te = kg / 0.0073800940707;
         
         listaFrase[0] = "%.0f".formatted(kg);
-        listaFrase[1] = "%.2f".formatted(sumo);
+        listaFrase[1] = "%.0f".formatted(latasRefresco);
         listaFrase[2] = "%.0f".formatted(te);
         
         return listaFrase;
@@ -376,38 +376,7 @@ public class Interfaz extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Interfaz().setVisible(true);
-                
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IconBytes;
