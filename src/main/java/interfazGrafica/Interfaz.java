@@ -46,7 +46,7 @@ public class Interfaz extends javax.swing.JFrame {
         IconCo2 = new javax.swing.JLabel();
         IconBytes = new javax.swing.JLabel();
         IconTierra = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        labelCiudad = new javax.swing.JLabel();
         labelError = new javax.swing.JLabel();
         panelCiudad = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -183,9 +183,9 @@ public class Interfaz extends javax.swing.JFrame {
         IconTierra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/plantea.png"))); // NOI18N
         jPanelResultado.add(IconTierra, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 467, 155, 154));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ciudad.png"))); // NOI18N
-        jLabel8.setText("jLabel8");
-        jPanelResultado.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-670, 0, -1, 770));
+        labelCiudad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ciudad.png"))); // NOI18N
+        labelCiudad.setText("jLabel8");
+        jPanelResultado.add(labelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(-670, 0, -1, 770));
 
         labelError.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notFoundImage690x670.jpg"))); // NOI18N
         labelError.setVisible(false);
@@ -267,7 +267,7 @@ public class Interfaz extends javax.swing.JFrame {
         
             labelError.setVisible(true);
             mostrarPanelesResultado(false);
-            jLabel8.setVisible(false);
+            labelCiudad.setVisible(false);
         
         }
 
@@ -286,29 +286,11 @@ public class Interfaz extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonResetActionPerformed
 
-    private  void cambiarAPanelResultados(){
-      
-      //Ponemos visible el panel resultado
-            webResultado.setVisible(true);
-            textoGramosCo2.setVisible(true);
-            co2.setVisible(true);
-            textobytes.setVisible(true);
-            bytes.setVisible(true);
-            textoenergia.setVisible(true);
-            energy.setVisible(true);
-            green.setVisible(true);
-            textoBooleanEcologico.setVisible(true);
-            IconEcologico.setVisible(true);
-            IconCo2.setVisible(true);
-            IconBytes.setVisible(true);
-            IconTierra.setVisible(true);
-
-    
-    }
+  
     
     private void mostrarPanelesResultado(Boolean mostrar){
         //Invisible el jLabel, siempre al contrario
-           jLabel8.setVisible(!mostrar);
+           labelCiudad.setVisible(!mostrar);
            
            //Paneles de resultado
          webResultado.setVisible(mostrar);
@@ -376,9 +358,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel energy;
     private javax.swing.JLabel green;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelResultado;
+    private javax.swing.JLabel labelCiudad;
     private javax.swing.JLabel labelError;
     private javax.swing.JPanel panelCiudad;
     private javax.swing.JLabel textoBooleanEcologico;
