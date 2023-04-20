@@ -187,9 +187,9 @@ public class Interfaz extends javax.swing.JFrame {
         labelCiudad.setText("jLabel8");
         jPanelResultado.add(labelCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(-670, 0, -1, 770));
 
-        labelError.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notFoundImage690x670.jpg"))); // NOI18N
+        labelError.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/gato.png"))); // NOI18N
         labelError.setVisible(false);
-        jPanelResultado.add(labelError, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 690, 670));
+        jPanelResultado.add(labelError, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 530, 670));
 
         panelCiudad.setOpaque(false);
 
@@ -222,7 +222,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel2.add(jPanelResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 690, 770));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fonoPaginaTres.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo3.png"))); // NOI18N
         jLabel6.setText("jLabel6");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
@@ -273,6 +273,9 @@ public class Interfaz extends javax.swing.JFrame {
 
     }//GEN-LAST:event_botonStartActionPerformed
 
+    private void frase(){
+    
+    }
     private void botonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonResetActionPerformed
         
         //Pone todos los paneles resultado en oculto

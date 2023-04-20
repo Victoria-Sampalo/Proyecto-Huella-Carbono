@@ -385,7 +385,7 @@
             <Component class="javax.swing.JLabel" name="labelError">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/notFoundImage690x670.jpg"/>
+                  <Image iconType="3" name="/img/gato.png"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -393,7 +393,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="0" y="100" width="690" height="670"/>
+                  <AbsoluteConstraints x="160" y="100" width="530" height="670"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -425,7 +425,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/fonoPaginaTres.jpg"/>
+              <Image iconType="3" name="/img/fondo3.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel6"/>
           </Properties>
