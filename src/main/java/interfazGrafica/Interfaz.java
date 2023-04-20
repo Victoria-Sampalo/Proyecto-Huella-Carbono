@@ -273,7 +273,17 @@ public class Interfaz extends javax.swing.JFrame {
 
     }//GEN-LAST:event_botonStartActionPerformed
 
-    private void frase(){
+    private String [] frase(double co2){
+        String [] listaFrase = new String [3];
+        double kg = co2*120;
+        double sumo = kg/150;
+        double te = kg/0.0073800940707;
+        
+        listaFrase[0]="%.0f".formatted(kg);
+        listaFrase[1]="%.2f".formatted(sumo);
+        listaFrase[2]="%.0f".formatted(te);
+        
+        return listaFrase;
     
     }
     private void botonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonResetActionPerformed
