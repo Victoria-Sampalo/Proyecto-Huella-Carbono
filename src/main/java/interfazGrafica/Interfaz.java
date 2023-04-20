@@ -257,7 +257,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         //Instancio un objeto Api donde llama a la clase
         Api respuesta = PeticionApi.peticionDatoUrl(textoURL.getText());
-        System.out.println(respuesta.getGreen().toString());
 //        jLabel8.setVisible(false);
 
         if (respuesta != null) {
@@ -268,7 +267,7 @@ public class Interfaz extends javax.swing.JFrame {
 
             energy.setText("%.5f".formatted(respuesta.getStatistics().getEnergy()));
             
-            //green.setText(respuesta.getGreen().toString().equalsIgnoreCase("true") ? "Es ecológico" : "No es ecológico");
+            green.setText(respuesta.getGreen().toString().equalsIgnoreCase("true") ? "Es ecológico" : "No es ecológico");
             
             
             
