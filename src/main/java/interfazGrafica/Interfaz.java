@@ -33,7 +33,6 @@ public class Interfaz extends javax.swing.JFrame {
         botonStart = new javax.swing.JButton();
         textoURL = new javax.swing.JTextField();
         jPanelResultado = new javax.swing.JPanel();
-        labelError = new javax.swing.JLabel();
         webResultado = new javax.swing.JLabel();
         textoGramosCo2 = new javax.swing.JLabel();
         co2 = new javax.swing.JLabel();
@@ -48,6 +47,7 @@ public class Interfaz extends javax.swing.JFrame {
         IconBytes = new javax.swing.JLabel();
         IconTierra = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        labelError = new javax.swing.JLabel();
         panelCiudad = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -117,10 +117,6 @@ public class Interfaz extends javax.swing.JFrame {
         jPanelResultado.setOpaque(false);
         jPanelResultado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelError.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notFoundImage690x670.jpg"))); // NOI18N
-        labelError.setVisible(false);
-        jPanelResultado.add(labelError, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 690, 670));
-
         webResultado.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         webResultado.setForeground(new java.awt.Color(255, 255, 255));
         webResultado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -131,7 +127,7 @@ public class Interfaz extends javax.swing.JFrame {
         textoGramosCo2.setForeground(new java.awt.Color(255, 255, 255));
         textoGramosCo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoGramosCo2.setText("gramos de Co2");
-        jPanelResultado.add(textoGramosCo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 399, 185, 17));
+        jPanelResultado.add(textoGramosCo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 399, 185, 20));
 
         co2.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 24)); // NOI18N
         co2.setForeground(new java.awt.Color(255, 102, 0));
@@ -155,7 +151,7 @@ public class Interfaz extends javax.swing.JFrame {
         textoenergia.setForeground(new java.awt.Color(255, 255, 255));
         textoenergia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoenergia.setText("energía necesaria");
-        jPanelResultado.add(textoenergia, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 652, 185, 17));
+        jPanelResultado.add(textoenergia, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 652, 185, 20));
 
         energy.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 24)); // NOI18N
         energy.setForeground(new java.awt.Color(255, 102, 0));
@@ -190,6 +186,10 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ciudad.png"))); // NOI18N
         jLabel8.setText("jLabel8");
         jPanelResultado.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-670, 0, -1, 770));
+
+        labelError.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notFoundImage690x670.jpg"))); // NOI18N
+        labelError.setVisible(false);
+        jPanelResultado.add(labelError, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 690, 670));
 
         panelCiudad.setOpaque(false);
 
@@ -267,6 +267,7 @@ public class Interfaz extends javax.swing.JFrame {
         
             labelError.setVisible(true);
             mostrarPanelesResultado(false);
+            jLabel8.setVisible(false);
         
         }
 
