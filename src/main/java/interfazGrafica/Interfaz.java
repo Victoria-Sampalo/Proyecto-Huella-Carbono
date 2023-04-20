@@ -122,17 +122,17 @@ public class Interfaz extends javax.swing.JFrame {
         jPanelResultado.setOpaque(false);
         jPanelResultado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelPaginaResultado.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        labelPaginaResultado.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
         labelPaginaResultado.setForeground(new java.awt.Color(255, 102, 0));
         labelPaginaResultado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPaginaResultado.setText("PÁGINA CONSULTADA");
-        jPanelResultado.add(labelPaginaResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 680, 347, 32));
+        labelPaginaResultado.setText("Uh oh!!!!!");
+        jPanelResultado.add(labelPaginaResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 662, 347, 50));
 
         webResultado.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         webResultado.setForeground(new java.awt.Color(255, 255, 255));
         webResultado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         webResultado.setText("www.mardealboran.eu");
-        jPanelResultado.add(webResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 707, 347, 32));
+        jPanelResultado.add(webResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 707, 670, 40));
 
         textoGramosCo2.setFont(new java.awt.Font("Noto Sans Mono CJK JP", 1, 15)); // NOI18N
         textoGramosCo2.setForeground(new java.awt.Color(255, 255, 255));
@@ -298,7 +298,7 @@ public class Interfaz extends javax.swing.JFrame {
     //
     private void cambiarLabelResultado(Api respuesta) {
         co2.setText("%.5f".formatted(respuesta.getStatistics().getCo2().getGrid().getGrams())); 
-        bytes.setText(respuesta.getBytes().toString());
+        bytes.setText(respuesta.getStatistics().getAdjustedBytes().toString());
         energy.setText("%.5f".formatted(respuesta.getStatistics().getEnergy()));
         green.setText(respuesta.getGreen().toString().equalsIgnoreCase("true")
                 ? "Verde"
@@ -310,7 +310,7 @@ public class Interfaz extends javax.swing.JFrame {
                 : green.getText().equalsIgnoreCase("Verde")
                     ? "El host es sostenible"
                     : "El host no es sostenible");
-        webResultado.setText(textoURL.getText());
+        webResultado.setText("%s es más sucia que el %.0f%% de webs analizadas".formatted(textoURL.getText(), (1-respuesta.getCleanerThan())*100));
         cambiarLabelFrase(frase(respuesta.getStatistics().getCo2().getGrid().getGrams()));
         //Mostramos los paneles de resultado
     }
