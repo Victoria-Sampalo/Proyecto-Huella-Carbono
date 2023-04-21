@@ -205,7 +205,7 @@ public class Interfaz extends javax.swing.JFrame {
         sumo.setForeground(new java.awt.Color(0, 63, 61));
         sumo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         sumo.setText("2.65");
-        jPanelResultado.add(sumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 70, 40));
+        jPanelResultado.add(sumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 100, 40));
 
         IconBytes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/byte.png"))); // NOI18N
         jPanelResultado.add(IconBytes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 100, 130));
