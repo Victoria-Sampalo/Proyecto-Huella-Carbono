@@ -4,7 +4,7 @@
  */
 package interfazGrafica;
 
-import PeticionApi.PeticionApi;
+import peticionApi.PeticionApi;
 import apiCarbon.Api;
 import java.text.DecimalFormat;
 
@@ -283,11 +283,12 @@ public class Interfaz extends javax.swing.JFrame {
         Api respuesta = PeticionApi.peticionDatoUrl(textoURL.getText());
 //        jLabel8.setVisible(false);
 
+        // si el resultado no es nulo cambia el texto de los labels y los hace visibles
         if (respuesta != null) {
             cambiarLabelResultado(respuesta);
             mostrarPanelesResultado(true);
         } else {
-            
+            // si es null mostramos el panel 404 
             labelError.setVisible(true);
             mostrarPanelesResultado(false);
             labelCiudad.setVisible(false);
@@ -297,6 +298,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_botonStartActionPerformed
     //
     private void cambiarLabelResultado(Api respuesta) {
+        // método que cambia el texto de los labels donde muestra la información
         co2.setText("%.5f".formatted(respuesta.getStatistics().getCo2().getGrid().getGrams())); 
         bytes.setText(respuesta.getStatistics().getAdjustedBytes().toString());
         energy.setText("%.5f".formatted(respuesta.getStatistics().getEnergy()));
@@ -315,12 +317,14 @@ public class Interfaz extends javax.swing.JFrame {
         //Mostramos los paneles de resultado
     }
     
+    // método que cambia el texto d elos label de sabias que
     private void cambiarLabelFrase(String[] frase) {
         kg.setText(frase[0]);
         sumo.setText(frase[1]);
         tazas.setText(frase[2]);
     }
     
+    // método que devuelve el texto de sabias que en forma de array
     private String[] frase(double co2) {
         String[] listaFrase = new String[3];
         double kg = co2 * 120;
