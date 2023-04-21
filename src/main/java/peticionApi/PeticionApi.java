@@ -18,50 +18,49 @@ import serviciosJson.JsonService;
  * @author victoria
  */
 public class PeticionApi {
-    String texto= ""; 
-    //Método que valida la url que indica el usuario por pantalla y verifica si la url es válida o no.
-    public static Api peticionDatoUrl(String UrlTexto){
-        //Si está vacio o si la url no es valida
-       if(!UrlTexto.isEmpty() ||urlValidador(UrlTexto)){
-        
-            //Igualo la url que luego saldrá por pantalla
-         String  urlBase ="https://api.websitecarbon.com/site?url=" + UrlTexto;   
-          //Llamo a realizar la conexion con la api 
-          
-             String fichero = "";
-           try {   
-                fichero = ConexionHTTP.peticionHttpGet(urlBase);
-     
-          
-                Api respuesta= (Api) JsonService.stringToPojo(fichero, Api.class);
-                 return respuesta;
-          
-        }catch(Exception e){
-         return null;
-        
-        }
-     
-       }
-       return null;
-    }
-    
-      //Metodo privado que devuelve un booleano si la url está mal expresada en el textArea
-private static boolean urlValidador(String url){
 
-    try {
+    String texto = "";
+
+    //Método que valida la url que indica el usuario por pantalla y verifica si la url es válida o no.
+    public static Api peticionDatoUrl(String UrlTexto) {
+        //Si está vacio o si la url no es valida
+        if (!UrlTexto.isEmpty() || urlValidador(UrlTexto)) {
+
+            //Igualo la url que luego saldrá por pantalla
+            String urlBase = "https://api.websitecarbon.com/site?url=" + UrlTexto;
+            //Llamo a realizar la conexion con la api 
+
+            String fichero = "";
+            try {
+                fichero = ConexionHTTP.peticionHttpGet(urlBase);
+
+                Api respuesta = (Api) JsonService.stringToPojo(fichero, Api.class);
+                return respuesta;
+
+            } catch (Exception e) {
+                return null;
+
+            }
+
+        }
+        return null;
+    }
+
+    //Metodo privado que devuelve un booleano si la url está mal expresada en el textArea
+    private static boolean urlValidador(String url) {
+
+        try {
             new URL(url).toURI();
             return true;
-        }
-        catch (URISyntaxException urlse) {
+        } catch (URISyntaxException urlse) {
             System.out.println("Esta url tiene una sintaxis incorrecta");
-             JOptionPane.showMessageDialog(null, "Esta url tiene una sintaxis incorrecta");
+            JOptionPane.showMessageDialog(null, "Esta url tiene una sintaxis incorrecta");
             return false;
-        }
-        catch (MalformedURLException mfurle) {
+        } catch (MalformedURLException mfurle) {
             System.out.println("Esta url está formada de manera incorrecta");
             JOptionPane.showMessageDialog(null, "Esta url está formada de manera incorrecta");
             return false;
         }
 
-}
+    }
 }

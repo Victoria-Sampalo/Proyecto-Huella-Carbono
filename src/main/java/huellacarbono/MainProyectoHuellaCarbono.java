@@ -13,7 +13,7 @@ import java.io.IOException;
 
 /**
  *
- * @author victoria
+ * @author Proyecto realizado por Elisabet D'acosta y Victoria Sampalo
  */
 public class MainProyectoHuellaCarbono {
 

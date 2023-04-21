@@ -1,4 +1,3 @@
-
 package conexionHTTP;
 
 import java.io.BufferedReader;
@@ -19,9 +18,9 @@ public class ConexionHTTP {
         // Abrir la conexión e indicar que será de tipo GET
         HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
         conexion.setRequestMethod("GET");
-        
+
         // Flujo de lectura
-        try (BufferedReader flujoEntrada = new BufferedReader(new InputStreamReader(conexion.getInputStream()))) {
+        try ( BufferedReader flujoEntrada = new BufferedReader(new InputStreamReader(conexion.getInputStream()))) {
             String linea;
             // Mientras el BufferedReader se pueda leer, agregar contenido a resultado
             while ((linea = flujoEntrada.readLine()) != null) {

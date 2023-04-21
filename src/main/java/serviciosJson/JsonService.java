@@ -9,12 +9,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonService {
-    
+
     public static Object stringToPojo(String json, Class clase) throws JsonProcessingException {
         ObjectMapper mapeador = new ObjectMapper();
 
-        return mapeador.readValue(json,clase);
+        return mapeador.readValue(json, clase);
     }
-    
 
 }

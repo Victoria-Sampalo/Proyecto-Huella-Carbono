@@ -13,10 +13,10 @@ import java.text.DecimalFormat;
  * @author eli
  */
 public class Interfaz extends javax.swing.JFrame {
-    
+
     public Interfaz() {
         initComponents();
-        
+
     }
 
     /**
@@ -281,7 +281,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         //Instancio un objeto Api donde llama a la clase
         Api respuesta = PeticionApi.peticionDatoUrl(textoURL.getText());
-//        jLabel8.setVisible(false);
 
         // si el resultado no es nulo cambia el texto de los labels y los hace visibles
         if (respuesta != null) {
@@ -292,52 +291,56 @@ public class Interfaz extends javax.swing.JFrame {
             labelError.setVisible(true);
             mostrarPanelesResultado(false);
             labelCiudad.setVisible(false);
-            
+
         }
 
     }//GEN-LAST:event_botonStartActionPerformed
     //
     private void cambiarLabelResultado(Api respuesta) {
-        // método que cambia el texto de los labels donde muestra la información
-        co2.setText("%.5f".formatted(respuesta.getStatistics().getCo2().getGrid().getGrams())); 
+        // Cambiamos la información de los labels con los datos que recogemos de la consulta
+        co2.setText("%.5f".formatted(respuesta.getStatistics().getCo2().getGrid().getGrams()));
         bytes.setText(respuesta.getStatistics().getAdjustedBytes().toString());
         energy.setText("%.5f".formatted(respuesta.getStatistics().getEnergy()));
+        //Tratamiento de label para saber si es ecológico o no. 
+        
         green.setText(respuesta.getGreen().toString().equalsIgnoreCase("true")
                 ? "Verde"
                 : respuesta.getGreen().toString().equalsIgnoreCase("false")
-                    ? "No verde"
-                    : "Desconocido");
+                ? "No verde"
+                : "Desconocido");
         textoBooleanEcologico.setText(green.getText().equalsIgnoreCase("Desconocido")
                 ? "El host es desconocido"
                 : green.getText().equalsIgnoreCase("Verde")
-                    ? "El host es sostenible"
-                    : "El host no es sostenible");
-        webResultado.setText("%s es más sucia que el %.0f%% de webs analizadas".formatted(textoURL.getText(), (1-respuesta.getCleanerThan())*100));
+                ? "El host es sostenible"
+                : "El host no es sostenible");
+        
+        webResultado.setText("%s es más sucia que el %.0f%% de webs analizadas".formatted(textoURL.getText(), (1 - respuesta.getCleanerThan()) * 100));
         cambiarLabelFrase(frase(respuesta.getStatistics().getCo2().getGrid().getGrams()));
-        //Mostramos los paneles de resultado
+        
     }
-    
-    // método que cambia el texto d elos label de sabias que
+
+    // Método que cambia el texto d elos label de sabias que
     private void cambiarLabelFrase(String[] frase) {
         kg.setText(frase[0]);
         sumo.setText(frase[1]);
         tazas.setText(frase[2]);
     }
-    
-    // método que devuelve el texto de sabias que en forma de array
+
+    // Método que devuelve el texto de sabias que en forma de array
     private String[] frase(double co2) {
         String[] listaFrase = new String[3];
         double kg = co2 * 120;
         double latasRefresco = kg / 0.5;
         double te = kg / 0.0073800940707;
-        
+
         listaFrase[0] = "%.0f".formatted(kg);
         listaFrase[1] = "%.0f".formatted(latasRefresco);
         listaFrase[2] = "%.0f".formatted(te);
-        
+
         return listaFrase;
-        
+
     }
+    //Método para el boton reset, al pulsar debe reiniciarse la interfaz
     private void botonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonResetActionPerformed
 
         //Pone todos los paneles resultado en oculto
@@ -346,10 +349,11 @@ public class Interfaz extends javax.swing.JFrame {
         labelError.setVisible(false);
         //TextArea de resultado a null
         textoURL.setText("www.");
-        
+
 
     }//GEN-LAST:event_botonResetActionPerformed
-    
+
+    //Método para mostrar u ocultar los paneles, los label de error y de ciudad van en sentido contrario al resto
     private void mostrarPanelesResultado(Boolean mostrar) {
         //Invisible el jLabel, siempre al contrario
         labelCiudad.setVisible(!mostrar);
@@ -374,13 +378,12 @@ public class Interfaz extends javax.swing.JFrame {
         tazas.setVisible(mostrar);
         kg.setVisible(mostrar);
         sumo.setVisible(mostrar);
-        
+
     }
 
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IconBytes;
